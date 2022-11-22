@@ -13,6 +13,12 @@ const btn = form.querySelector('.my-btn');
 
 // * DECLARATIONS
 
+// ? VARIABLES DECLARATIONS
+let ageDiscount;
+let ticketPrice;
+let kmToTravel;
+let ageUser;
+
 
 
 
