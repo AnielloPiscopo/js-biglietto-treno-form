@@ -17,10 +17,6 @@ const btn = form.querySelector('.my-btn');
 /* *---------------------------------------------------------------
 MAIN CODE */
 
-// * LINEAR PROGRAMM
-
-
-
 // * EVENTS
 btn.addEventListener('click' , function(){
     // ? INITIALITATIONS OF COSTANTS
@@ -33,10 +29,6 @@ btn.addEventListener('click' , function(){
     let ticketPrice;
     let kmToTravel;
     let ageUser;
-
-
-    // ? EVENT PREVENT DEFAULT
-    event.preventDefault();
 
 
     // ? ASSIGNMENTS
