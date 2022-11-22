@@ -75,16 +75,26 @@ btn.addEventListener('click' , function(){
 
     // * 4)Putting the Inner HTML
     infoTitle.innerHTML = 'I dati a disposizione per il biglietto del treno sono:';
-    kmToTravelLi.innerHTML = `L'utente deve percorrere ${kmToTravel}km;`
-    ageLi.innerHTML = `L'utente ha ${ageUser} anni;`;
-    ticketPriceLi.innerHTML = `Il prezzo del tuo biglietto è di ${ticketPrice} &euro;.`;
+
+    if(Number.isNaN(ageUser) || Number.isNaN(kmToTravel)){
+        ticketPriceLi.innerHTML = 'Il prezzo del biglietto non può essere calcolato perché non sono stati inseriti alcuni dati.';
+    }
+    else if(ageUser<=0 || kmToTravel<=0){
+        ticketPriceLi.innerHTML = 'Il prezzo del biglietto non può essere calcolato perché hai inserito dei valori inferiori o uguali a 0 nei campi sovrastanti.';
+    }
+    else{
+        kmToTravelLi.innerHTML = `L'utente deve percorrere ${kmToTravel}km;`
+        ageLi.innerHTML = `L'utente ha ${ageUser} anni;`;
+        ticketPriceLi.innerHTML = `Il prezzo del tuo biglietto è di ${ticketPrice} &euro;.`;
+
+        ul.append(kmToTravelLi);
+        ul.append(ageLi);
+    }
 
     // * 5)Appending the elements in the HTML
     formContainer.append(infoTicket);
     infoTicket.append(infoTitle);
     infoTicket.append(ul);
-    ul.append(kmToTravelLi);
-    ul.append(ageLi);
     ul.append(ticketPriceLi);
 })
 
