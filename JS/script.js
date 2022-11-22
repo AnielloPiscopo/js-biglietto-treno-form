@@ -49,8 +49,8 @@ btn.addEventListener('click' , function(){
     // ? VISUALIZATION OF THE FINAL PRICE AND OF THE OTHER VALUE
 
     // * 1)Elimination of the previous div
-    if(formContainer.lastElementChild == formContainer.querySelector('div')){
-        formContainer.querySelector('div').remove();   
+    if(formContainer.lastElementChild != formContainer.querySelector('form')){
+        formContainer.lastElementChild.remove();   
     }
 
     // * 2)Creation of HTML elements
