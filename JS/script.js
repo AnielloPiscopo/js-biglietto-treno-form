@@ -31,3 +31,6 @@ MAIN CODE */
 
 
 // * EVENTS
+btn.addEventListener('click' , function(){
+    age
+})
