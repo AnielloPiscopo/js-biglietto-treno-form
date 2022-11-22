@@ -39,10 +39,10 @@ btn.addEventListener('click' , function(){
 
     // ? DISCOUNT APPLICATIONS
     if(ageUser < 18){
-        ticketPrice = ticketPrice - (ticketPrice * discountUnderage);
+        ticketPrice -= (ticketPrice * discountUnderage);
     }
     else if(ageUser > 65){
-        ticketPrice = ticketPrice - (ticketPrice * discountOver65);
+        ticketPrice -= (ticketPrice * discountOver65);
     }
 
 
