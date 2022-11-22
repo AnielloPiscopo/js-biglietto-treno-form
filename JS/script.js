@@ -11,21 +11,6 @@ const ageInputField = form.querySelector('input[name="age"]');
 const btn = form.querySelector('.my-btn');
 
 
-// ? INITIALITATIONS OF COSTANTS
-const kmToTravelUnitPrice = 0.2762;
-const discountUnderage = 17.5 / 100;
-const discountOver65 = 33.3 / 100;
-
-
-
-// * DECLARATIONS
-
-// ? VARIABLES DECLARATIONS
-let ticketPrice;
-let kmToTravel;
-let ageUser;
-
-
 
 
 
@@ -38,6 +23,18 @@ MAIN CODE */
 
 // * EVENTS
 btn.addEventListener('click' , function(){
+    // ? INITIALITATIONS OF COSTANTS
+    const kmToTravelUnitPrice = 0.2762;
+    const discountUnderage = 17.5 / 100;
+    const discountOver65 = 33.3 / 100;
+
+
+    // ? VARIABLES DECLARATIONS
+    let ticketPrice;
+    let kmToTravel;
+    let ageUser;
+
+
     // ? EVENT PREVENT DEFAULT
     event.preventDefault();
 
@@ -59,28 +56,46 @@ btn.addEventListener('click' , function(){
 
     // ? VISUALIZATION OF THE FINAL PRICE AND OF THE OTHER VALUE
 
-    // * Correction of the visualization of the values given in input
-    ageInputField.value = ageUser.toFixed(0);
+    // * 1)Elimination of the previous div
+    if(formContainer.lastElementChild == formContainer.querySelector('div')){
+        formContainer.querySelector('div').remove();   
+    }
+
+    // * 2)Creation of HTML elements
+    const ul = document.createElement('ul');
+    const ageLi = document.createElement('li');
+    const kmToTravelLi = document.createElement('li');
+    const ticketPriceLi = document.createElement('li');
+    const infoTicket = document.createElement('div');
+    const infoTitle = document.createElement('h2');
     
-    if(kmToTravel - Math.floor(kmToTravel) !== 0){
-        kmToTravelInputField.value = kmToTravel.toFixed(2);
+    // * 3)Control of the values
+    kmToTravel = isADecimalNumber(kmToTravel);
+    ticketPrice = isADecimalNumber(ticketPrice);
+
+    // * 4)Putting the Inner HTML
+    infoTitle.innerHTML = 'I dati a disposizione per il biglietto del treno sono:';
+    kmToTravelLi.innerHTML = `L'utente deve percorrere ${kmToTravel}km;`
+    ageLi.innerHTML = `L'utente ha ${ageUser} anni;`;
+    ticketPriceLi.innerHTML = `Il prezzo del tuo biglietto è di ${ticketPrice} &euro;.`;
+
+    // * 5)Appending the elements in the HTML
+    formContainer.append(infoTicket);
+    infoTicket.append(infoTitle);
+    infoTicket.append(ul);
+    ul.append(kmToTravelLi);
+    ul.append(ageLi);
+    ul.append(ticketPriceLi);
+})
+
+
+
+// * FUNCTIONS
+function isADecimalNumber(a){
+    if(a - Math.floor(a) !== 0){
+        return a.toFixed(2);
     }
     else{
-        kmToTravelInputField.value = kmToTravel;
+        return a;
     }
-
-    // * Creation of a HTML element and visualization of the final output
-    const span = document.createElement('span');
-    
-    if(ticketPrice - Math.floor(ticketPrice) !== 0){
-        ticketPrice = ticketPrice.toFixed(2);
-    }
-
-    span.innerHTML = `Il prezzo del tuo biglietto è di ${ticketPrice}`;
-
-    if(formContainer.lastElementChild == document.querySelector('span')){
-        formContainer.lastElementChild.remove();
-    }
-
-    formContainer.append(span);
-})
+}
