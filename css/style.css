@@ -1,9 +1,63 @@
 /* *---------------------------------------------------------------
 GENERAL STYLES */
 
+/* * ROOT */
+:root{
+    /* ? COLORS */
+    --header-nav-bg-color:#e6e6e6;
+    --main-color-text:#3a3a3a;
+    --header-nav-color:#707070;
+    --footer-bg-color: linear-gradient(170deg, rgba(167,167,167,1) 61%, rgba(98,98,98,1) 100%);
+}
+
+
+
+/* * TAG HTML */
+body{
+    color: var(--main-color-text);
+}
+
+
+
+/* * CLASSES */
+.my-btn:focus{
+    box-shadow: none;
+    outline: none;
+}
+
 
 
 
 
 /* *---------------------------------------------------------------
 SPECIFIC STYLES */
+
+/* * HEADER */
+header nav{
+    background-color: var(--header-nav-bg-color);
+}
+
+header nav a.my-nav-link{
+    color: var(--header-nav-color);
+}
+
+header nav a.my-nav-link:hover{
+    font-weight: bold;
+}
+
+header nav a.my-nav-link.active.nav-link{
+    color: var(--main-color-text);
+}
+
+
+/* * FOOTER */
+footer{
+    background: var(--footer-bg-color);
+}
+
+footer span.my-icon{
+    font-size: 0.5rem;
+    vertical-align: middle;
+    border: 1px solid black;
+    padding: 0.1rem;
+}

@@ -59,16 +59,18 @@ btn.addEventListener('click' , function(){
     const kmToTravelLi = document.createElement('li');
     const ticketPriceLi = document.createElement('li');
     const infoTicket = document.createElement('div');
-    const infoTitle = document.createElement('h2');
+    const infoTitle = document.createElement('h3');
 
     // * 3)Putting the Inner HTML
     infoTitle.innerHTML = 'I dati a disposizione per il biglietto del treno sono:';
 
     if(Number.isNaN(ageUser) || Number.isNaN(kmToTravel)){
-        ticketPriceLi.innerHTML = 'Il prezzo del biglietto non può essere calcolato perché non sono stati inseriti alcuni dati.';
+        ticketPriceLi.innerHTML = 'Il prezzo del biglietto non può essere calcolato perché non sono stati inseriti alcuni dati oppure i valori non sono corretti.';
+        ul.className = 'm-0 p-0 list-unstyle';
     }
     else if(ageUser<=0 || kmToTravel<=0){
         ticketPriceLi.innerHTML = 'Il prezzo del biglietto non può essere calcolato perché hai inserito dei valori inferiori o uguali a 0 nei campi sovrastanti.';
+        ul.className = 'm-0 p-0 list-unstyle';
     }
     else{
         kmToTravel = isADecimalNumber(kmToTravel);
@@ -76,7 +78,7 @@ btn.addEventListener('click' , function(){
 
         kmToTravelLi.innerHTML = `L'utente deve percorrere ${kmToTravel}km;`
         ageLi.innerHTML = `L'utente ha ${ageUser} anni;`;
-        ticketPriceLi.innerHTML = `Il prezzo del tuo biglietto è di ${ticketPrice} &euro;.`;
+        ticketPriceLi.innerHTML = `Il prezzo del tuo biglietto è di ${ticketPrice}&euro;.`;
 
         ul.append(kmToTravelLi);
         ul.append(ageLi);
