@@ -48,12 +48,12 @@ btn.addEventListener('click' , function(){
 
     // ? VISUALIZATION OF THE FINAL PRICE AND OF THE OTHER VALUE
 
-    // * 1)Elimination of the previous div
+    // * Elimination of the previous div
     if(formContainer.lastElementChild != formContainer.querySelector('form')){
         formContainer.lastElementChild.remove();   
     }
 
-    // * 2)Creation of HTML elements
+    // * Creation of HTML elements
     const ul = document.createElement('ul');
     const ageLi = document.createElement('li');
     const kmToTravelLi = document.createElement('li');
@@ -61,8 +61,8 @@ btn.addEventListener('click' , function(){
     const infoTicket = document.createElement('div');
     const infoTitle = document.createElement('h3');
 
-    // * 3)Putting the Inner HTML
-    infoTitle.innerHTML = 'I dati a disposizione per il biglietto del treno sono:';
+    // * Putting the Inner HTML
+    infoTitle.innerHTML = '<strong>I dati a disposizione per il biglietto del treno sono:</strong>';
 
     if(Number.isNaN(ageUser) || Number.isNaN(kmToTravel)){
         ticketPriceLi.innerHTML = 'Il prezzo del biglietto non può essere calcolato perché non sono stati inseriti alcuni dati oppure i valori non sono corretti.';
@@ -76,15 +76,19 @@ btn.addEventListener('click' , function(){
         kmToTravel = isADecimalNumber(kmToTravel);
         ticketPrice = isADecimalNumber(ticketPrice);
 
-        kmToTravelLi.innerHTML = `L'utente deve percorrere ${kmToTravel}km;`
-        ageLi.innerHTML = `L'utente ha ${ageUser} anni;`;
-        ticketPriceLi.innerHTML = `Il prezzo del tuo biglietto è di ${ticketPrice}&euro;.`;
+        kmToTravelLi.innerHTML = `L'utente deve percorrere <strong>${kmToTravel}km</strong>;`
+        ageLi.innerHTML = `L'utente ha <strong>${ageUser} anni;</strong>`;
+        ticketPriceLi.innerHTML = `Il prezzo del tuo biglietto è di <strong>${ticketPrice}&euro;</strong>.`;
 
         ul.append(kmToTravelLi);
         ul.append(ageLi);
     }
 
-    // * 4)Appending the elements in the HTML
+    // * Adding of some bootstrap classes;
+    infoTicket.classList.add('pt-3');
+    ul.classList.add('pt-2');
+
+    // * Appending the elements in the HTML
     formContainer.append(infoTicket);
     infoTicket.append(infoTitle);
     infoTicket.append(ul);

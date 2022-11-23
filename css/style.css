@@ -6,7 +6,8 @@ GENERAL STYLES */
     /* ? COLORS */
     --header-nav-bg-color:#e6e6e6;
     --main-color-text:#3a3a3a;
-    --header-nav-color:#707070;
+    --header-nav-link-color:#707070;
+    --header-nav-link-active-color: black;
     --footer-bg-color: linear-gradient(170deg, rgba(167,167,167,1) 61%, rgba(98,98,98,1) 100%);
 }
 
@@ -38,7 +39,7 @@ header nav{
 }
 
 header nav a.my-nav-link{
-    color: var(--header-nav-color);
+    color: var(--header-nav-link-color);
 }
 
 header nav a.my-nav-link:hover{
@@ -46,7 +47,7 @@ header nav a.my-nav-link:hover{
 }
 
 header nav a.my-nav-link.active.nav-link{
-    color: var(--main-color-text);
+    color: var(--header-nav-link-active-color);
 }
 
 
@@ -59,5 +60,5 @@ footer span.my-icon{
     font-size: 0.5rem;
     vertical-align: middle;
     border: 1px solid black;
-    padding: 0.1rem;
+    padding: 0.05rem 0.2rem;
 }
