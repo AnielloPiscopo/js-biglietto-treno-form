@@ -66,11 +66,11 @@ btn.addEventListener('click' , function(){
 
     if(Number.isNaN(ageUser) || Number.isNaN(kmToTravel)){
         ticketPriceLi.innerHTML = 'Il prezzo del biglietto non può essere calcolato perché non sono stati inseriti alcuni dati oppure i valori non sono corretti.';
-        ul.className = 'm-0 p-0 list-unstyle';
+        ul.className = 'm-0 p-0 list-unstyled';
     }
     else if(ageUser<=0 || kmToTravel<=0){
         ticketPriceLi.innerHTML = 'Il prezzo del biglietto non può essere calcolato perché hai inserito dei valori inferiori o uguali a 0 nei campi sovrastanti.';
-        ul.className = 'm-0 p-0 list-unstyle';
+        ul.className = 'm-0 p-0 list-unstyled';
     }
     else{
         kmToTravel = isADecimalNumber(kmToTravel);
